@@ -25,18 +25,29 @@ export default function Home() {
         console.log(data)
     }
 
+    const deleteHandler = async () => {
+        const res = await fetch("/api/todos", {
+            method: "DELETE",
+        });
+        const data = await res.json();
+        setTodos(data.data)
+    }
+
     return (
     <>
-     <h1>salam</h1>
-    <ul>
-        {todos.map((todo)=> (
-            <li key={todo.id} >{todo.title}</li>
-        ))}
-    </ul>
-    <div>
-        <input value={todo} onChange={e => setTodo(e.target.value)} />
-        <button onClick={clickHandler} >create Todo</button>
-    </div>
+        <h1>salam</h1>
+        <ul>
+            {todos.map((todo)=> (
+                <li key={todo.id} >{todo.title}</li>
+            ))}
+        </ul>
+        <div>
+            <input value={todo} onChange={e => setTodo(e.target.value)} />
+            <button onClick={clickHandler} >create Todo</button>
+        </div>
+        <div>
+            <button onClick={deleteHandler}  >Delete All</button>
+        </div>
     </>
   )
 }

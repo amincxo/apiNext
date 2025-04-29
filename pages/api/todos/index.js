@@ -14,6 +14,12 @@ export default function (req , res) {
             message: 'create ucsefuly',
             data : newTodo
         })
+    } else if (req.method === 'DELETE') {
+        // delete all todos
+        res.status(200).json({
+            message: 'all todos deleted',
+            data: []
+        })
     }
 
 }
