@@ -11,7 +11,7 @@ export default function (req , res) {
             title: todo,
         };
         res.status(201).json({
-            message: 'create ucsefuly',
+            message: 'create sucsefuly',
             data : newTodo
         })
     } else if (req.method === 'DELETE') {
@@ -19,6 +19,12 @@ export default function (req , res) {
         res.status(200).json({
             message: 'all todos deleted',
             data: []
+        })
+    } else if(req.method === 'PUT'){
+       //replace all data
+        res.status(200).json({
+            message: 'all data replace',
+            data: req.body
         })
     }
 
